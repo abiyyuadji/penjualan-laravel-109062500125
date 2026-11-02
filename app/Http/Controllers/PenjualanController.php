@@ -15,9 +15,9 @@ class PenjualanController extends Controller
             ->orderByDesc('id')
             ->get();
 
-        $totalomzet = Penjualan::where('status', 'Selesai')->sum('total');
+        $totalOmzet = Penjualan::where('status', 'Selesai')->sum('total') ?? 0;
 
-        return view('penjualan.index', compact('penjualan', 'totalomzet'));
+        return view('penjualan.index', compact('penjualan', 'totalOmzet'));
     }
 
     public function create()
